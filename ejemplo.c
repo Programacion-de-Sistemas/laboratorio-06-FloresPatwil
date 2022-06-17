@@ -7,9 +7,9 @@ void display(){
   char** Square = repeatH(whiteSquare, 8);
   interpreter(Square);
   */
-  char** Black = reverse(repeatH(whiteSquare,0));
-  char** White = repeatH(whiteSquare,0);
-
+  char** Black = reverse(whiteSquare);
+  char** White = whiteSquare;
   char** Union = join(Black, White);
+  char** Suceso = repeatH(Union, 4);
   interpreter(Union);
 }
