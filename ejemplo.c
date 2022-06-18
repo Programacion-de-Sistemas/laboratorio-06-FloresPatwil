@@ -18,7 +18,7 @@ void display(){
 
   char** Suceso = repeatH(Union,4);
   interpreter(Suceso); */
-  //EJERCICIO 3 
+  //EJERCICIO 3  Creacion del tablero 4 x 8
   char** Black = reverse(whiteSquare);
   char** Union = join(Black, whiteSquare);
 
@@ -26,6 +26,6 @@ void display(){
   char** Espejo =flipV(Suceso);
 
   char** UnionFilas = up(Suceso , Espejo);
-  char** Tablero = repeatV(UnionFilas,2);
+  char** Tablero = repeatV(UnionFilas,4);
   interpreter(Tablero);
 }
