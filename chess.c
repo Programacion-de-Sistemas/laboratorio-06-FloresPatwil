@@ -39,7 +39,25 @@ char** rotateR(char** y){  //Nueva imagen de la rotacion a la derecha del origin
 }
 
 char** reverse(char** y){  //imagen contraria a la original
-
+    char *p;
+    p=y;
+    int tamaño = sizeof(y);
+    for(int i=0;j<tamaño;i++){
+        while(*p != '\0'){
+            if(*p =='_' || *p =='.'){
+                *p='@';
+            }else if (*p =='='){
+                *p='#';
+            }else if (*p =='@'){
+                *p='_';
+                *p='.';
+            }else if (*p =='#'){
+                *p='=';
+            }
+            p++;
+        }
+    }   
+    return y;
 }
 
 char** superImpose(char** y, char** x){  //imagen resultado de imagen superpuesta a otra
