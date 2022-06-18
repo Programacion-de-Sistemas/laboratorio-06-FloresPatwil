@@ -83,6 +83,12 @@ void display(){
   char** TableroVac = repeatV(UnionRest,2);            //repite 2 veces=> tab 4x8
 
   //Fichas Blancas 2x8 superior
-  char** FichasWhite=join(FilaW,FilPeoW);
-  interpreter(FichasWhite);
+  char** FichasWhite=up(FilaW,FilPeoW);
+  
+  //Fichas Negras 2x8 inferior
+  char** FichasBlack=up(FilPeoB,FilaB);
+  
+  //Tablero completo
+  char** TableroComp = up(up(FichasWhite,TableroVac),FichasBlack);
+  interpreter(TableroComp);
 }
