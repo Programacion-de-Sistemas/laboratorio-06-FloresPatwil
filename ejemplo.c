@@ -39,9 +39,7 @@ void display(){
 
   char** PiezasS = join(CabTorAlf,CinDer);             //8 piezas superiores
   char** FilaS = superImpose(PiezasS,SFilNB);
-
-  */
-  // EJERCICIO 5 Tablero negri blanco pero ahora con piezas negras del inferior tablero
+  / EJERCICIO 5 Tablero negri blanco pero ahora con piezas negras del inferior tablero
   //fila negro y blanca
   char** blackSquare = reverse(whiteSquare);
   char** Union = join(blackSquare, whiteSquare);
@@ -56,4 +54,20 @@ void display(){
   char** FilaS = superImpose(PiezasS,SFilNB);
 
   interpreter(FilaS);
+
+  */
+  // EJERCICIO 6 Tablero completo
+  char** blackSquare = reverse(whiteSquare);
+  char** Union = join(blackSquare, whiteSquare);
+  char** SFilNB = repeatH(Union,4);
+  
+  char** CabTorAlf = join(join(rook, knight),bishop);//rook/knight/bishop
+  char** AlfTorCab = join(join(bishop,knight),rook); //bishop/knight/rook
+  char** CinDer = join(join(king,queen),AlfTorCab);    //5 piezas derechas superiore
+  //  como son las mismas piezas aplicamos revese 
+  //  para ponerlas de color negro
+  char** PiezasS = join(CabTorAlf,CinDer);             //8 piezas superiores
+  char** FilaW = superImpose(PiezasS,SFilNB);          //fila BN superior 
+  char** FilaB = reverse(superImpose(PiezasS,SFilNB)); //Fila NB inferior
+  interpreter(FilaB);
 }
