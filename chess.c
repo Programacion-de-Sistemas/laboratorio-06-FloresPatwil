@@ -104,9 +104,14 @@ char** up(char** y, char** x){  //imegen resultado de una imagen sobre otra
 }
 
 char** repeatH(char** y, int x){  //imagen resultado de repetir horizontalmente
-
+    for(int i=0;i<=x;i++){
+        char** z=join(char** y,char** y);
+        return z;
+    }
 }
 
 char** repeatV(char** y, int x){  //imagen resultado de repetir verticalmente
-
+    for(int i=0;i<=x;i++){
+        return y;    
+    }
 }
