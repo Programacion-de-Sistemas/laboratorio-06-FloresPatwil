@@ -5,12 +5,19 @@ void display(){
   interpreter(blackKnight);
   char** Square = repeatH(whiteSquare, 8);
   interpreter(Square);*/
-
-  //cuadro blanqui negro
+  //---------------------------------------
+  /*EJERCICIO 1 cuadro blanqui negro
   char** Black = reverse(whiteSquare);
   char** White = whiteSquare;
   char** Union = join(White, Black);
 
   char** Suceso = repeatH(Union,4);
   interpreter(Suceso);
+  */
+  //EJERCICIO 2 cuadro negri blanco
+  char** Black = reverse(whiteSquare);
+  char** Union = join(Black, whiteSquare);
+
+  char** Suceso = repeatH(Union,4);
+  interpreter(Suceso); 
 }
