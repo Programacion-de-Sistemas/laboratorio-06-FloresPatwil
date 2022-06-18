@@ -59,7 +59,7 @@ void display(){
   // EJERCICIO 6 Tablero completo
   char** blackSquare = reverse(whiteSquare);
   char** Union = join(blackSquare, whiteSquare);
-  char** SFilNB = repeatH(Union,4);
+  char** SFilNB = repeatH(Union,4);                  //fila negri blanca 1x8
   
   char** CabTorAlf = join(join(rook, knight),bishop);//rook/knight/bishop
   char** AlfTorCab = join(join(bishop,knight),rook); //bishop/knight/rook
@@ -67,7 +67,15 @@ void display(){
   //  como son las mismas piezas aplicamos revese 
   //  para ponerlas de color negro
   char** PiezasS = join(CabTorAlf,CinDer);             //8 piezas superiores
-  char** FilaW = superImpose(PiezasS,SFilNB);          //fila BN superior 
-  char** FilaB = reverse(superImpose(PiezasS,SFilNB)); //Fila NB inferior
-  interpreter(FilaB);
+  char** FilaW = superImpose(PiezasS,SFilNB);          //fila BN f blancas superior 
+  char** FilaB = reverse(superImpose(PiezasS,SFilNB)); //Fila NB f negras inferior
+  
+  //Fila Peones Negros
+  char** PeonesB = reverse(repeatH(pawn,8));           //peones oscuros  x8
+  char** FilPeoB = superImpose(PeonesB,SFilNB);        //peones en tablero Negriblanco
+
+  //Fila Peones Blancos
+  char** FilPeoW = reverse(superImpose(PeonesB,SFilNB));//peones blancos x8
+
+  interpreter(FilPeoW);
 }
