@@ -65,11 +65,42 @@ char** superImpose(char** y, char** x){  //imagen resultado de imagen superpuest
 }
 
 char** join(char** y, char** x){  //imagen resultado de una imagen al lado de otra
+    int tamañoY=sizeof(y);
+    int tamañoX=sizeof(x);
+    int cadenas=0;
 
+    for(int i=0;i<tamañoY;i++){
+        int cadenas += strlen(y[i]);
+    }
+    int tamañoZ = cadenas+tamañoY*strlen(x);
+    char** z=malloc((tamañoZ+1)*sizeof(char));
+    z[tamañoZ] = '\0';
+
+    int temp = 0;
+    for(int i=0;i<tamañoY;i++){
+        if(i != 0){
+            strcpy(z+temp,x);
+            temp+=strlen(x);
+        }
+
+        strcpy(z+temp,y[i]);
+        temp += strlen(y[i]);
+    }
+    return z;
 }
 
 char** up(char** y, char** x){  //imegen resultado de una imagen sobre otra
-
+    int tamañoY=sizeof(y);
+    int tamañoX=sizeof(x);
+    char** z;
+    for(int i=0;i<tamañoY;i++){
+        z[i] = y[i];
+    }for(int j=0;j<tamañoX;i++){
+        z[i++]=y[j];
+    }
+    for(int k=0;k<tamañoY+tamañoX;k++){
+        return z[k];
+    }
 }
 
 char** repeatH(char** y, int x){  //imagen resultado de repetir horizontalmente
