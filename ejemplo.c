@@ -77,5 +77,10 @@ void display(){
   //Fila Peones Blancos
   char** FilPeoW = reverse(superImpose(PeonesB,SFilNB));//peones blancos x8
 
-  interpreter(FilPeoW);
+  //Filas vacias en medio de la tabla
+  char** Inverso = flipV(SFilNB);		       //fila BN blanquinegro
+  char** UnionRest = up(SFilNB,Inverso);	       //tablero 2x8 NB enpieza
+  char** TableroVac = repeatV(UnionRest,2);            //repite 2 veces=> tab 4x8
+
+  interpreter(TableroVac);
 }
