@@ -1,10 +1,13 @@
 #include "chess.h"
 #include "figures.h"
 
+//dado el tamano considerale que manejan as figuras
+//se repite podemos definir el tamano
+int tamano=59;
 char** flipV(char** y){  //espejo vertical de la imagen original
     char *p;    //puntero que rreorrera la lista
     p = y;
-    for(int i=0;i<sizeof(y);i++){  //rrecorremos el puntero
+    for(int i=0;i<sizeof(tamano;i++){  //rrecorremos el puntero
         while(*p != '\0'){
             y[i] = strev(p);       //se invierte la cadena
             p++;
@@ -15,8 +18,13 @@ char** flipV(char** y){  //espejo vertical de la imagen original
 
 char** flipH(char** y){  //espejo horizontal de la imagen original
     //recorre todo el array e invierte sus elementos
-    for(int i=sizeof(y); i>=0;i--)
-        return y;
+    char* temp;
+    for(int i=0;i<t/2;i++){
+        temp=y[i];
+        y[i]=y[t-i-1];
+        y[t-i-1]=temp;
+    }
+    return y;
 }
 
 char** rotateL(char** y){  //Nueva imagen de la rotacion a la izquierda del original
@@ -90,16 +98,17 @@ char** join(char** y, char** x){  //imagen resultado de una imagen al lado de ot
 }
 
 char** up(char** y, char** x){  //imegen resultado de una imagen sobre otra
-    int tamañoY=sizeof(y);
-    int tamañoX=sizeof(x);
-    //se trata de unir los arrays
+    /se trata de unir los arrays mas no sus elementos   
     char** z;
-    for(int i=0;i<tamañoY;i++){
-        z[i] = y[i];   
-    }for(int j=0;j<tamañoX;j++){
+    //Cadena Y
+    for(int i=0;i<tamaño;i++){
+        z[i] = y[i];
+     //Cadena X      
+    }for(int j=0;j<tamaño;j++){
         z[j++]=x[j];
     }
-    for(int k=0;k<tamañoY+tamañoX;k++){
+    //Juntar el tamaño de ambas cadenas
+    for(int k=0;k<tamaño+tamaño;k++){
         return z[k];
     }
 }
