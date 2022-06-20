@@ -61,7 +61,7 @@ char** reverse(char** y){  //imagen contraria a la original
 }
 
 char** superImpose(char** y, char** x){  //imagen resultado de imagen superpuesta a otra
-
+    return y;
 }
 
 char** join(char** y, char** x){  //imagen resultado de una imagen al lado de otra
